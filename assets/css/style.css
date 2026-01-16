@@ -1,0 +1,250 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+
+
+/* Reset y base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    font-family: "Lato", sans-serif;
+    display: flex;
+    flex-direction: column;
+}
+
+a {
+    text-decoration: none;
+}
+
+h1 {
+    font-weight: bold;
+}
+
+main {
+    flex: 1;
+    padding-bottom: 80px;
+}
+
+
+/* header y footer */
+.encabezado,
+.footer-bottom-nav,
+.footer-ml {
+    background: linear-gradient(
+        90deg,
+        rgba(117, 117, 217, 1) 31%,
+        rgba(0, 59, 222, 1) 47%,
+        rgba(64, 154, 222, 1) 93%
+    );
+    color: aliceblue;
+}
+
+.encabezado p {
+    margin: 0;
+}
+
+.encabezado .col-6 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 900;
+    font-size: clamp(1.8rem, 4vw, 2.6rem);
+    letter-spacing: -0.5px;
+}
+
+
+/* Footer nav*/
+.footer-bottom-nav {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    z-index: 100;
+}
+
+.footer-bottom-nav ul {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 0.75rem 0;
+    list-style: none;
+}
+
+.footer-bottom-nav a {
+    color: white;
+    font-size: 1.6rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.footer-bottom-nav i {
+    transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.footer-bottom-nav a:hover i,
+.footer-bottom-nav a:active i {
+    transform: scale(0.85);
+    color: #0616f5;
+}
+
+
+/* Login */
+#principalLogin {
+    min-height: 100vh;
+    background-image: url(../img/antartida.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.profile {
+    width: 80px;
+    border-radius: 50%;
+    margin: 10px;
+}
+
+
+/* saldo */
+.saldo {
+    margin-top: 3rem;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+
+/* Iconos */
+.icons i {
+    font-size: 40px;
+    color: #003bde;
+    transition: transform 0.25s ease, filter 0.25s ease, color 0.25s ease;
+}
+
+
+/* Menú principal */
+.menu-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1.5rem 1rem;
+    margin: 0.75rem;
+    border-radius: 16px;
+    background: #ffffff;
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.12);
+    transition: transform 0.15s ease;
+}
+
+.menu-item:hover {
+    transform: translateY(2px);
+}
+
+
+.menu-item:active {
+    transform: scale(0.96);
+}
+
+
+/* Beneficios */
+.benefit-card {
+    border-radius: 15px;
+    overflow: hidden;
+    background: #fff;
+    box-shadow: 0 6px 14px rgba(1, 214, 247, 0.15);
+    transition: transform 0.15s ease;
+}
+
+.benefit-card img {
+    width: 100%;
+    display: block;
+}
+
+.benefit-card:active {
+    transform: scale(0.96);
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+}
+
+
+/* botones */
+#btnAgregarContacto,
+#ocultarSaldo,
+#guardarContacto,
+#formDeposito .btn,
+.row .btn-outline-primary {
+    background-color: #003bde;
+    color: white;
+    border: none;
+}
+
+#btnAgregarContacto:hover,
+#ocultarSaldo:hover,
+#guardarContacto:hover,
+#formDeposito .btn:hover,
+.row .btn-outline-primary:hover {
+    background-color: #7575d9;
+}
+
+.form-label {
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+#cerrarSesion {
+    font-size: 13px;
+    font-weight: bold;
+    color: antiquewhite;
+    background-color: transparent;
+    border: none;
+}
+
+#cerrarSesion:hover {
+    background-color: #7575d9;
+    transition: 1s;
+}
+
+#principalLogin .btn-primary {
+    background-color: rgb(40, 40, 209);
+    display: flex;
+    justify-content: center;
+    transition: 1s;
+    border: none;
+}
+
+#principalLogin .btn-primary:hover {
+    background-color: #7575d9;
+}
+
+
+/* modal */
+.modal.fade .modal-dialog {
+    transform: scale(1);
+    transition: transform 0.3s ease;
+}
+
+.modal.show .modal-dialog {
+    transform: scale(1);
+}
+
+
+/* toast */
+.toast-wallet {
+    bottom: 62px;
+}
+
+
+/* animaciones*/
+.fade-in {
+    opacity: 0;
+    animation: fadeIn 0.4s ease forwards;
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+}

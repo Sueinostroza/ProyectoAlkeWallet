@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sendmoney|Alke Wallet</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+    <header class="encabezado">
+        <div class="container">
+            <div class="row">
+                <div class="col-3">
+                    <a href="menu.html" title="Volver al menu principal">
+                        <img src="assets/img/baby-penguin.jpg" class="profile" alt="foto bebé pingüino"> </a>
+                </div>
+                <div class="col-6">
+                    <p>Alke Wallet</p>
+                </div>
+                <div class="col-3 d-flex align-items-center justify-content-center">
+                    <div id="cerrarSesionWrapper">
+                        <button id="cerrarSesion" class="btn btn-primary" type="button">
+                            <i class="bi bi-arrow-right"></i>Cerrar sesión</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main class="fade-in">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <h1 class="send-money text-center mt-5 mb-4">Enviar dinero</h1>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-md-6">
+                    <div class="d-flex justify-content-end mb-3">
+                        <button id="btnAgregarContacto" class="btn btn-primary" aria-label="Agregar contacto nuevo"
+                            data-bs-toggle="modal" data-bs-target="#modalContacto" type="button"><i
+                                class="fa-solid fa-user-plus"></i>
+                            Agregar nuevo contacto
+                        </button>
+                    </div>
+                    <form id="formTransferencia" novalidate>
+                        <div class="mb-3 position-relative">
+                            <label for="inputContacto" class="form-label">Transferir a</label>
+                            <input type="text" class="form-control" id="inputContacto" placeholder="Buscar contacto">
+                            <ul id="autocompletar" class="list-group position-absolute w-100"></ul>
+                            <input type="hidden" id="cuentaDestino">
+                        </div>
+                        <p class="fw-bold">Contactos guardados</p>
+                        <div class="table-responsive mb-4">
+                            <table class="table table-striped contactosGuardados">
+                                <thead>
+                                    <tr>
+                                        <th>Nombre</th>
+                                        <th>Cuenta</th>
+                                        <th>Banco</th>
+                                        <th>Acciones</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="tablaContactos">
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="mb-3">
+                            <label for="montoDeposito">Monto</label>
+                            <div class="input-group mt-3">
+                                <span class="input-group-text">$</span>
+                                <input type="number" class="form-control" id="montoDeposito" min="1" placeholder="0"
+                                    required>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-outline-primary mt-3 w-100">Transferir<i
+                                class="fa-solid fa-hand-holding-dollar"></i></button>
+                    </form>
+                </div>
+            </div>
+            <div class="row mt-4">
+                <div class="col-12">
+                    <div id="mensajeTransferencias">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer class="footer-bottom-nav">
+        <nav>
+            <ul>
+                <li><a href="menu.html"><i class="icon-footer bi bi-house-check-fill"></i></a></li>
+                <li><a href="sendmoney.html"><i class="icon-footer bi bi-cash-coin"></i></a></li>
+                <li><a href="transaction.html"><i class="icon-footer fa-solid fa-up-down"></i></a></li>
+                <li><a href="deposit.html"><i class="icon-footer bi bi-piggy-bank-fill"></i></a></li>
+                <li><a href="benefits.html"><i class="icon-footer fa-solid fa-gift"></i></a></li>
+            </ul>
+        </nav>
+    </footer>
+    <div class="modal fade" id="modalContacto" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Agregar contacto</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <form id="formContacto">
+                    <div class="modal-body">
+                        <div class="mb-3">
+                            <label for="nombreContacto">Nombre</label>
+                            <input type="text" id="nombreContacto" class="form-control">
+                        </div>
+                        <div class="mb-3">
+                            <label for="cuentaContacto">Cuenta</label>
+                            <input type="text" id="cuentaContacto" class="form-control">
+                        </div>
+                        <div class="mb-3">
+                            <label for="bancoContacto">Banco</label>
+                            <input type="text" id="bancoContacto" class="form-control">
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" id="guardarContacto" class="btn btn-primary">
+                            Guardar contacto
+                        </button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                            Cancelar
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="toast-container position-fixed end-0 p-3 toast-wallet d-flex flex-column-reverse">
+
+        <div id="toastConfirmar" class="toast" role="alert">
+            <div class="toast-header">
+                <strong class="me-auto">Confirmar transferencia</strong>
+                <button type="button" class="btn-close" data-bs-dismiss="toast"></button>
+            </div>
+            <div class="toast-body">
+                <p id="toastTexto"></p>
+                <div class="d-flex justify-content-end gap-2">
+                    <button class="btn btn-success btn-sm" id="toastConfirmarBtn">
+                        Confirmar
+                    </button>
+                    <button class="btn btn-danger btn-sm" data-bs-dismiss="toast">
+                        Cancelar
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div id="toastError" class="toast text-bg-danger" role="alert">
+            <div class="toast-header">
+                <strong class="me-auto">Error</strong>
+                <button type="button" class="btn-close" data-bs-dismiss="toast"></button>
+            </div>
+            <div class="toast-body" id="toastErrorTexto"></div>
+        </div>
+        <div id="toastExito" class="toast text-bg-success" role="alert">
+            <div class="toast-header">
+                <strong class="me-auto">Transferencia exitosa</strong>
+                <button type="button" class="btn-close" data-bs-dismiss="toast"></button>
+            </div>
+            <div class="toast-body" id="toastExitoTexto"></div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="assets/js/common.js"></script>
+    <script src="assets/js/sendmoney.js"></script>
+</body>
+
+</html>
