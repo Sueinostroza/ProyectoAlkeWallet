@@ -5,7 +5,7 @@ $(document).ready(function () {
         const usuario = document.getElementById("correoLogin").value;
         const password = document.getElementById("passwordLogin").value;
         const mensaje = document.getElementById("mensajeLogin");
-        if (usuario === "admin@gmail.com" && password === "1234") {
+        if (usuario === "admin@gmail.com" && password === "874567") {
             mensaje.innerHTML = `<div class="alert alert-success d-flex align-items-center" role="alert">
 <i class="bi bi-check-circle-fill me-2"></i>
 <div>Acceso correcto</div>
